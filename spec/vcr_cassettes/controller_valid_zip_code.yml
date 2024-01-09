@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openweathermap.org/data/2.5/weather?appid=a68da59ef45b5829cdf0855fb4ff1f84&zip=20152
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Tue, 09 Jan 2024 03:58:20 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '482'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?zip=20152"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-77.5092,"lat":38.8976},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":274.32,"feels_like":271.78,"temp_min":271.33,"temp_max":277.17,"pressure":1027,"humidity":76},"visibility":10000,"wind":{"speed":2.24,"deg":161,"gust":3.13},"clouds":{"all":0},"dt":1704772700,"sys":{"type":2,"id":2011982,"country":"US","sunrise":1704716922,"sunset":1704751438},"timezone":-18000,"id":0,"name":"Chantilly","cod":200}'
+  recorded_at: Tue, 09 Jan 2024 03:58:20 GMT
+recorded_with: VCR 6.2.0

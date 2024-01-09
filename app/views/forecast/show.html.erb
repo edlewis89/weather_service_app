@@ -1,0 +1,12 @@
+<h1>Weather Forecast</h1>
+
+<% if @forecast %>
+  <p><strong>Current Temperature:</strong> <%= @forecast.main.temp %> °C</p>
+  <!-- Add more details as needed -->
+<% elsif @error %>
+  <p><strong>Error:</strong> <%= @error %></p>
+<% end %>
+
+<% if @cached %>
+  <p><strong>Result pulled from cache.</strong></p>
+<% end %>
