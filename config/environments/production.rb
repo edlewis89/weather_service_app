@@ -94,4 +94,11 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV["REDIS_PRODUCTION_URL"],
+    db: 0,               # Redis database number
+    expires_in: 30.minutes, # Default expiration time for cache entries
+    namespace: 'cache'   # Namespace for keys (optional but recommended)
+  }
 end

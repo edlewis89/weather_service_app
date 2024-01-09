@@ -36,14 +36,36 @@ The Weather Forecast App is a Ruby on Rails application that allows users to ret
     bundle install
     ```
 
-3. **Set up the database:**
+3. **Set up the database/redis configuration:**
+   - Create a .env file at the root of the application and add your database user password.
+   
+   ```bash
+   GENERAL_USER_PASSWORD=<GENERAL USER DATABASE PASSWORD>
+   REDIS_DEVELOPMENT_URL='redis://localhost:6379/1'
+   REDIS_PRODUCTION_URL=<PRODUCTION REDIS URL>
+   ```
+   
+4. Make sure connection to your db is working.
 
     ```bash
     rails db:create
     rails db:migrate
     ```
+   
+5. Run Redis CLI:
+   - Connect to the Redis server using the Redis CLI to verify the connection.
 
-4. **Configure API Key:**
+   - Development
+   ```bash
+   rails dev:cache 
+   ```
+
+   - Production
+   ```bash
+   redis-cli
+   ```
+   
+6. **Configure API Key:**
 
     - Obtain an API key from [OpenWeatherMap](https://openweathermap.org/) and update it in your application (e.g., in `config/application.yml`).
     - Create a file to store your API key securely. Use Rails credentials for this purpose:
@@ -58,13 +80,13 @@ The Weather Forecast App is a Ruby on Rails application that allows users to ret
      api_key: YOUR_OPENWEATHERMAP_API_KEY
    ```
    
-6. **Start the server:**
+7. **Start the server:**
 
     ```bash
     rails server
     ```
-
-6. **Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to use the application.**
+   
+8. **Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to use the application.**
 
 ## Usage
 

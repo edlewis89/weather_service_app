@@ -73,4 +73,11 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV["REDIS_DEVELOPMENT_URL"],
+    db: 0,               # Redis database number
+    expires_in: 30.minutes, # Default expiration time for cache entries
+    namespace: 'cache'   # Namespace for keys (optional but recommended)
+  }
 end
