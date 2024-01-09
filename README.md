@@ -18,9 +18,9 @@ The Weather Forecast App is a Ruby on Rails application that allows users to ret
 
 ### Prerequisites
 
-- Ruby (version x.x.x)
-- Rails (version x.x.x)
-- Redis (for caching store)
+- Ruby (version 3.2.2)
+- Rails (version 7.1.2)
+- Redis (version 5.0.8) 
 
 ### Steps
 
