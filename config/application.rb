@@ -23,5 +23,13 @@ module WeatherServiceApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.cache_store = :redis_store, {
+      host: 'localhost',  # Redis server address
+      port: 6379,          # Redis server port
+      db: 0,               # Redis database number
+      expires_in: 30.minutes, # Default expiration time for cache entries
+      namespace: 'cache'   # Namespace for keys (optional but recommended)
+    }
   end
 end

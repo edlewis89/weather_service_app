@@ -21,26 +21,31 @@ class WeatherService
 
   def make_api_request(zip_code)
     # For demonstration purposes, let's assume some API request logic that might raise an exception
-    raise StandardError, 'API request failed' if zip_code == 'error'
+    raise StandardError, 'API request failed' unless valid_zip_code?(zip_code)
 
     response = self.class.get(@base_uri, query: { zip: zip_code, appid: @api_key })
 
     # Check for specific error response from OpenWeatherMap API
-    raise OpenWeatherMapError, response['message'] if response['cod'] == 401
-
-    # Check for specific error response from OpenWeatherMap API
-    raise OpenWeatherMapError, response['message'] if response['cod'] == 404
+    raise OpenWeatherMapError, response['message'] if !response['cod'] == 200
 
     response
   end
 
   def handle_response(response)
-    # Your existing response handling logic here
     parsed_response = response.parsed_response if response.success?
 
     raise StandardError, 'Invalid response' if parsed_response['error']
 
-    JSON.parse(response.body, object_class: OpenStruct)
+    # HASH
+    parsed_response
+  end
+
+  def valid_zip_code?(zip_code)
+    # Regular expression for a 5-digit number
+    zip_code_regex = /\A\d{5}\z/
+
+    # Check if the zip code matches the regular expression
+    !zip_code.match(zip_code_regex).nil?
   end
 end
 

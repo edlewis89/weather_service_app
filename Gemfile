@@ -26,8 +26,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Use Redis adapter to run Action Cable in production
-gem "redis", ">= 4.0.1"
+# Use the latest version of the redis gem
+gem 'redis', '~> 4.2'
+# Integrate Redis with Rails caching
+gem 'redis-rails', '~> 5.0'
 
 gem 'httparty'
 

@@ -2,6 +2,8 @@
 
 <% if @forecast %>
   <p><strong>Current Temperature:</strong> <%= @forecast.main.temp %> °C</p>
+  <p><strong>Current Max Temperature:</strong> <%= @forecast.main.temp_max %> °C</p>
+  <p><strong>Current Min Temperature:</strong> <%= @forecast.main.temp_min %> °C</p>
   <!-- Add more details as needed -->
 <% elsif @error %>
   <p><strong>Error:</strong> <%= @error %></p>

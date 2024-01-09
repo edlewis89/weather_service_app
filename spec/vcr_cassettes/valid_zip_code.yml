@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openweathermap.org/data/2.5/weather?appid=a68da59ef45b5829cdf0855fb4ff1f84&zip=12345
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Tue, 09 Jan 2024 04:15:55 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '488'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?zip=12345"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-73.9396,"lat":42.8142},"weather":[{"id":803,"main":"Clouds","description":"broken
+        clouds","icon":"04n"}],"base":"stations","main":{"temp":270.01,"feels_like":270.01,"temp_min":266.58,"temp_max":272.7,"pressure":1030,"humidity":91},"visibility":10000,"wind":{"speed":0.89,"deg":24,"gust":1.79},"clouds":{"all":75},"dt":1704773672,"sys":{"type":2,"id":2087805,"country":"US","sunrise":1704716763,"sunset":1704749883},"timezone":-18000,"id":0,"name":"Schenectady","cod":200}'
+  recorded_at: Tue, 09 Jan 2024 04:15:55 GMT
+recorded_with: VCR 6.2.0
